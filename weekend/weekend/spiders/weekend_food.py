@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import scrapy
+from weekend.items import WeekendItem as ITEM
 
 
 class WeekendFoodSpider(scrapy.Spider):
@@ -16,6 +17,14 @@ class WeekendFoodSpider(scrapy.Spider):
             yield scrapy.Request(url= nextPage ,callback = self.parse)
 
     def sub_parse(self,response):
+
+        # ITEM["date"] = response.xpath('//time/@datetime').extract()
+        # ITEM["title"] = response.xpath("//h1/text()").extract()
+        # ITEM["content"] = response.xpath('//div[@class = "_content_ AdAsia"]//p/text()').extract()
+        # ITEM['link'] = response.url
+        # ITEM["tag"] = response.xpath(
+        #     "//div[@class = 'btn-list']/a/text()").extract()
+
         items={
             "Date":response.xpath('//time/@datetime').extract(),
             "Title":response.xpath("//h1/text()").extract(),

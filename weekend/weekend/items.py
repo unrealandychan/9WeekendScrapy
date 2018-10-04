@@ -9,4 +9,9 @@ import scrapy
 
 
 class WeekendItem(scrapy.Item):
-    pass
+    date = scrapy.Field()
+    title = scrapy.Field()
+    author = scrapy.Field()
+    content = scrapy.Field()
+    link = scrapy.Field()
+    tag = scrapy.Field()
