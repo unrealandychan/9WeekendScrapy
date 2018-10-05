@@ -49,7 +49,8 @@ print(count)
 sug_word = ["馬鞍山","八爪魚","食肉獸","肉眼扒","製作","好唔好","唔好","西柚","入手","跡象","瘋狂",
             "即食麵","深水埗","現正","絕對","旺角","尖沙嘴","自製","打卡","文青",'歷史',"班戟","慾望",
             "陳皮","麵廠","一粒粒","雞爪凍","係咩","太安樓","片皮鴨","對抗",'薑茶','紅豆','邪惡','隱世',
-            '大多數','忌廉','朱古力','榴槤','黑白','即日','後製','至上','新傳媒']
+            '大多數','忌廉','朱古力','榴槤','黑白','即日','後製','至上','新傳媒','特調','梳乎里','炮制',
+            '芝士餅','芝士撻','拉麵']
 
 for k in sug_word:
     jieba.add_word(k)
@@ -61,7 +62,7 @@ for key in dataset['Content']:
 
 for i in range(len(file_train_Seg)):
     file_train_Seg[i] = re.sub(r',|。|！|（|）|，|✓|\n|\xa0|：|…|;|＄|／|；|、|「|」|•|</s>|』','',file_train_Seg[i])
-    file_train_Seg[i] = re.sub(r'了|媽|的|呢|有|亦|但|而|除|都|畀|因為|所以|和|及|以|如下|係|做|備|又|也|於|在|是|就|更|嘅|與|Text|photo|text|Edit','',file_train_Seg[i])
+    file_train_Seg[i] = re.sub(r'了|媽|的|呢|有|亦|但|而|除|都|畀|因為|所以|和|及|以|如下|係|做|備|又|也|於|在|是|就|更|嘅|與|Text|photo|text|Edit|乃|Sunny|還|Sunny','',file_train_Seg[i])
     file_train_Seg[i] = re.sub(r'\d{0,8}','',file_train_Seg[i])
     
 print(file_train_Seg)
@@ -71,5 +72,5 @@ plain_text = 'plain_text.txt'
 with open(plain_text ,'wb') as txt:
     for i in file_train_Seg:
         txt.write(i.encode('utf-8'))
-        txt.write(b'\n')
+        txt.write(b' ')
 
